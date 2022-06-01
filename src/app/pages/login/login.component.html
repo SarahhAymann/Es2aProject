@@ -13,12 +13,15 @@
                       <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label" style="font-family: Garamond; color: white;">Role</label>
-                      <input formControlName="role" type="email" class="form-control" id="exampleInputPassword1">
+                      <label for="exampleInputPassword1" class="form-label" style="font-family: Garamond; color: white;">Password</label>
+                      <input formControlName="password" type="email" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="font-family: Garamond;" (click)="login()">Login</button>
+                    <button type="submit" class="btn btn-primary" style="font-family: Garamond;" (click)="proceedLogin()">Login</button>
                   </form>
             </div>
         </div>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-warning">
+      <strong>Warning!</strong> {{errorMessage | json}}
     </div>
 </div>

@@ -1,14 +1,14 @@
-<mat-toolbar fxLayout="row" color="primary">
+<mat-toolbar fxLayout="row" color="primary" *ngIf="displayMenu">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>supervised_user_circle</mat-icon> 
     </button>
     <span fxFlex>REAL ESTATE</span>
     <span class="example-spacer"></span>
     <a mat-button fxHide.xs>Home</a>
- <a mat-button fxHide.xs routerLink="/admin-dashboard/">Analyze</a>
- <a mat-button fxHide.xs routerLink="/employees">Manage Employees</a>
- <a mat-button fxHide.xs routerLink="/constraints">Manage Constraints</a>
- <a mat-button fxHide.xs routerLink="/properties">Manage Homes</a>
+ <a *ngIf="displayDashboards" mat-button fxHide.xs routerLink="/admin-dashboard/">Analyze</a>
+ <a *ngIf="displayManagePages" mat-button fxHide.xs routerLink="/employees">Manage Employees</a>
+ <a *ngIf="displayManagePages" mat-button fxHide.xs routerLink="/constraints">Manage Constraints</a>
+ <a *ngIf="displayManagePages" mat-button fxHide.xs routerLink="/properties">Manage Homes</a>
  <a mat-button fxHide.xs routerLink="/login">Login</a>
     <button mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs>
       <mat-icon>more_vert</mat-icon>
@@ -16,10 +16,10 @@
   <mat-menu #dropMenu="matMenu">
     <ng-container>
  <a mat-menu-item >Home</a>
- <a mat-menu-item routerLink="/admin-dashboard/">Analyze</a>
- <a mat-menu-item routerLink="/employees">Manage Employees</a>
- <a mat-menu-item routerLink="/constraints">Manage Constraints</a>
- <a mat-menu-item routerLink="/properties">Manage Homes</a>
+ <a *ngIf="displayDashboards" mat-menu-item routerLink="/admin-dashboard/">Analyze</a>
+ <a *ngIf="displayManagePages" mat-menu-item routerLink="/employees">Manage Employees</a>
+ <a *ngIf="displayManagePages" mat-menu-item routerLink="/constraints">Manage Constraints</a>
+ <a *ngIf="displayManagePages" mat-menu-item routerLink="/properties">Manage Homes</a>
  <a mat-menu-item routerLink="/login">Login</a>
 </ng-container>
   </mat-menu>
