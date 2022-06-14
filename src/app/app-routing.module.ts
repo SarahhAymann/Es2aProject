@@ -8,9 +8,11 @@ import { ManagePropertiesComponent } from './pages/manage-properties/manage-prop
 import { AuthGuard } from './shared/auth.guard';
 import { ItRoleGuard } from './shared/it-role.guard';
 import { RoleGuard } from './shared/role.guard';
+import { HrRoleGuard } from './shared/hr-role.guard';
+import { SalesRoleGuard } from './shared/sales-role.guard';
 
 const routes: Routes = [
-  {path:'employees',component:ManageEmployeeComponent,canActivate:[RoleGuard]},
+  {path:'employees',component:ManageEmployeeComponent,canActivate:[HrRoleGuard]},
   {path:'properties',component:ManagePropertiesComponent,canActivate:[RoleGuard]},
   {path:'constraints',component:ManageConstraintsComponent,canActivate:[RoleGuard]},
   {path:'login',component:LoginComponent},

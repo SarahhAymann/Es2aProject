@@ -18,7 +18,7 @@ export class RoleGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.service.isLoggedIn()) {
       this.currentRole = this.service.GetRoleByToken(this.service.getToken());
-      if (this.currentRole == "admin") {
+      if (this.currentRole == "Superuser ") {
         return true;
       } else {
         alert('you are not authorized to access this menu');

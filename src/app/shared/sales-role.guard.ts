@@ -6,15 +6,17 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ItRoleGuard implements CanActivate {
+export class SalesRoleGuard implements CanActivate {
   currentRole: any;
+
   constructor(private service: AuthService, private router: Router) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.service.isLoggedIn()) {
       this.currentRole = this.service.GetRoleByToken(this.service.getToken());
-      if (this.currentRole == "Analyst" ||this.currentRole == "Superuser " ) {
+      if (this.currentRole == "Sales "||this.currentRole == "Superuser ") {
         return true;
       } else {
         alert('you are not authorized to access this menu');
@@ -26,5 +28,4 @@ export class ItRoleGuard implements CanActivate {
       return false;
     }
   }
-  
 }
